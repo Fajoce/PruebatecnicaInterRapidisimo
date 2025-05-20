@@ -9,43 +9,32 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
     />
   </head>
-  <body>
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <h2>ColegioApp</h2>
-      </div>
-      <nav class="sidebar-nav">
-        <a href="#dashboard" class="nav-item">
-          <span class="icon">🏠</span>
-          <span class="label">Dashboard</span>
-        </a>
-         <button [routerLink]="['/registrar-estudiante']" class="btn btn-primary">
-          Registrar estudiante
-        </button>
-        <button [routerLink]="['/ver-registros']" class="btn btn-primary">
-          Ver Registros
-        </button>
-
-        <button [routerLink]="['/registrar-clases']" class="btn btn-primary">
-          Registrar Clases
-        </button>
-         <button [routerLink]="['/ver-companeros']" class="btn btn-primary">
-          Ver Compañeros
-        </button>
-   <button [routerLink]="['/registrar-creditos']" class="btn btn-primary">
-          Registrar Créditos
-        </button>
-        <a href="#logout" class="nav-item logout">
-          <span class="icon">🚪</span>
-          <span class="label">Cerrar Sesión</span>
-        </a>
-      </nav>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      ColegioApp
     </div>
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item">
+        <span class="icon">🏠</span>
+        <span class="label">Dashboard</span>
+      </a>
+      <button [routerLink]="['/registrar-estudiante']" class="btn-nav">📄 Registrar Estudiante</button>
+      <button [routerLink]="['/ver-registros']" class="btn-nav">📁 Ver Registros</button>
+      <button [routerLink]="['/registrar-clases']" class="btn-nav">📚 Registrar Clases</button>
+      <button [routerLink]="['/ver-companeros']" class="btn-nav">👥 Ver Compañeros</button>
+      <button [routerLink]="['/registrar-creditos']" class="btn-nav">💳 Registrar Créditos</button>
+      <a href="#logout" class="nav-item logout">
+        <span class="icon">🚪</span>
+        <span class="label">Cerrar Sesión</span>
+      </a>
+    </nav>
+  </aside>
 
-    <div class="main-content">
-      <marquee><h2>Bienvenido a ColegioApp</h2></marquee>
-      <p>Selecciona una opción del menú lateral.</p>
-      <router-outlet />
-    </div>
-  </body>
+  <main class="main-content">
+    <div class="welcome-message">Bienvenido a Universidad InterRapidismo<marquee></marquee></div>
+    <p>Selecciona una opción del menú lateral para comenzar.</p>
+    <router-outlet></router-outlet>
+  </main>
+</body>
 </html>

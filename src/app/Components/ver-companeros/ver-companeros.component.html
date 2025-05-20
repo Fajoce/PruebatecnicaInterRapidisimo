@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h2>Buscar Compañeros por Estudiante</h2>
+
+  <div class="mb-3">
+    <label for="estudianteID" class="form-label">ID del Estudiante:</label>
+    <input type="number" [(ngModel)]="estudianteID" id="estudianteID" class="form-control" />
+  </div>
+
+  <button class="btn btn-primary" (click)="buscarCompaneros()">Buscar</button>
+
+  <div *ngIf="error" class="alert alert-danger mt-3">
+    {{ error }}
+  </div>
+
+  <div *ngIf="resultados.length > 0" class="mt-4">
+    <h4>Resultados:</h4>
+    <div *ngFor="let item of resultados" class="mb-3">
+      <strong>Materia:</strong> {{ item.materia }}<br />
+      <strong>Compañeros:</strong>
+      <ul>
+        <li *ngFor="let companero of item.companeros">{{ companero }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

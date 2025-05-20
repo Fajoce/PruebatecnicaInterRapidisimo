@@ -1,0 +1,38 @@
+<div class="card shadow p-4">
+  <h2 class="mb-4 text-center">Registrar Estudiante</h2>
+
+  <form [formGroup]="estudianteForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input id="nombre" formControlName="nombre" type="text" class="form-control" />
+      <div *ngIf="estudianteForm.controls['nombre'].invalid && estudianteForm.controls['nombre'].touched" class="text-danger mt-1">
+        Nombre es requerido.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input id="email" formControlName="email" type="email" class="form-control" />
+      <div *ngIf="estudianteForm.controls['email'].invalid && estudianteForm.controls['email'].touched" class="text-danger mt-1">
+        Email válido es requerido.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="passwordHash" class="form-label">Contraseña (hash):</label>
+      <input id="passwordHash" formControlName="passwordHash" type="password" class="form-control" />
+      <div *ngIf="estudianteForm.controls['passwordHash'].invalid && estudianteForm.controls['passwordHash'].touched" class="text-danger mt-1">
+        Contraseña es requerida.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" [disabled]="estudianteForm.invalid">Registrar</button>
+  </form>
+
+  <div *ngIf="creado" class="alert alert-success mt-3">
+    ✅ Estudiante registrado correctamente.
+  </div>
+  <div *ngIf="error" class="alert alert-danger mt-3">
+    ❌ {{ error }}
+  </div>
+</div>

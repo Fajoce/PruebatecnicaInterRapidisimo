@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Registrar Clase</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="claseForm" (ngSubmit)="registrarClase()">
+            <div class="mb-3">
+          <label class="form-label">Materia</label>
+          <select class="form-select" formControlName="materiaID">
+            <option [ngValue]="null">Seleccione una materia</option>
+            <option *ngFor="let materia of materias" [value]="materia.materiaID">
+              {{ materia.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Profesor</label>
+          <select class="form-select" formControlName="profesorID">
+            <option [ngValue]="null">Seleccione un profesor</option>
+            <option *ngFor="let profe of profesores" [value]="profe.profesorID">
+              {{ profe.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Estudiante</label>
+          <select class="form-select" formControlName="estudianteID">
+            <option [ngValue]="null">Seleccione un estudiante</option>
+            <option *ngFor="let est of estudiantes" [value]="est.estudianteID">
+              {{ est.nombre }}
+            </option>
+          </select>
+        </div>
+                
+
+        <button type="submit" class="btn btn-success" [disabled]="claseForm.invalid">Registrar</button>
+      </form>
+
+      <div *ngIf="mensajeExito" class="alert alert-success mt-3">
+        {{ mensajeExito }}
+      </div>
+
+      <div *ngIf="mensajeError" class="alert alert-danger mt-3">
+        {{ mensajeError }}
+      </div>
+    </div>
+  </div>
+</div>
